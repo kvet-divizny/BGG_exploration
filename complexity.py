@@ -18,8 +18,8 @@ def req_games(gameid):
 
     r = requests.get(url = base_url, params=payload)
 
-    print(r.url)
-    print(r.status_code)
+    # print(r.url)
+    # print(r.status_code)
     return r
     
 def parse_response(node):
@@ -30,8 +30,8 @@ def parse_response(node):
     )
     return game
 
-def main():
-    id = "311715,355326"
+def main(id):
+    # id = "311715,355326"
     games = []
 
     resp = req_games(id)
@@ -41,8 +41,7 @@ def main():
         game = parse_response(node)
         games.append(game)
 
-    for game in games:
-        print(game.name, game.weight)
+    return games
 
 
 if __name__ == "__main__":
